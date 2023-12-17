@@ -48,3 +48,7 @@ Thumbs.db
 
 # Ignore local configuration files
 local_settings.py
+
+==*
+2
+8.0.*
