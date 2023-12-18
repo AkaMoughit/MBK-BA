@@ -36,6 +36,8 @@ async def get_budget(budget_id: int, db: Session = Depends(get_db)):
 async def get_budgets(db: Session = Depends(get_db)):
     # Retrieve all budgets
     budgets = db.query(Budget).all()
+
+
     return budgets
 
 
