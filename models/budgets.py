@@ -2,7 +2,7 @@
 from datetime import datetime,date
 
 from pydantic import BaseModel
-from sqlalchemy import Column, DateTime, Integer, String
+from sqlalchemy import Column, DateTime, Integer, String, Float
 
 from database import Base
 
@@ -15,8 +15,8 @@ class Budget(Base):
     budget_id = Column(Integer, primary_key=True, index=True)
     user_id = Column(Integer)
     budget_name = Column(String(255))
-    amount = Column(Integer)
-    remaining_amount = Column(Integer)
+    amount = Column(Float)
+    remaining_amount = Column(Float)
     start_at = Column(DateTime)
     end_at = Column(DateTime)
     created_at = Column(DateTime)
