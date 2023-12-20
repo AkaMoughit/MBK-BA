@@ -1,5 +1,5 @@
 # models/users.py
-from datetime import datetime
+from datetime import datetime,date
 
 from pydantic import BaseModel
 from sqlalchemy import Column, DateTime, Integer, String
@@ -31,5 +31,5 @@ class UserBase(BaseModel):
     password_hash: str
     first_name: str
     last_name: str
-    date_of_birth: datetime
+    date_of_birth: date
     created_at: datetime

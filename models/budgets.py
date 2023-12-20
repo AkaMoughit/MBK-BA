@@ -1,5 +1,5 @@
 # models/budgets.py
-from datetime import datetime
+from datetime import datetime,date
 
 from pydantic import BaseModel
 from sqlalchemy import Column, DateTime, Integer, String
@@ -30,6 +30,6 @@ class BudgetBase(BaseModel):
     budget_name: str
     amount: int = 0
     remaining_amount: int = 0
-    start_at: datetime
-    end_at: datetime
+    start_at: date
+    end_at: date
     created_at: datetime
