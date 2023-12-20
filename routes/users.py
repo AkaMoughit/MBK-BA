@@ -32,7 +32,6 @@ async def get_user(user_id: int, db: Session = Depends(get_db)):
         )
     return user
 
-
 @router.get("/", status_code=status.HTTP_200_OK)
 async def get_users(db: Session = Depends(get_db)):
     # Retrieve all users
