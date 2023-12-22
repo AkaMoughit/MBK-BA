@@ -76,3 +76,9 @@ async def update_budget(
     db_budget.created_at = budget_data["created_at"]
     db.commit()
     return {"message": "Budget updated successfully"}
+
+@router.get("/{user_id}", status_code=status.HTTP_200_OK)
+async def get_budgets_by_user(user_id: int, db: Session = Depends(get_db)):
+    # Retrieve all budgets
+    budgets = db.query(Budget).filter(Budget.user_id == user_id).all()
+    return budgets
