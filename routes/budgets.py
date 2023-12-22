@@ -15,6 +15,7 @@ async def create_budget(budget: BudgetBase, db: Session = Depends(get_db)):
     # Create a new budget record
     budget_data = budget.dict()
     budget_data["created_at"] = datetime.now()
+    budget_data["remaining_amount"] = budget_data["amount"]
     db_budget = Budget(**budget_data)
     db.add(db_budget)
     db.commit()
