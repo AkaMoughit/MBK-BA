@@ -70,7 +70,7 @@ async def update_budget(
     db_budget.user_id = budget_data["user_id"]
     db_budget.budget_name = budget_data["budget_name"]
     db_budget.amount = budget_data["amount"]
-    db_budget.remaining_amount = budget_data["remaining_amount"]
+    db_budget.remaining_amount = budget_data["amount"]
     db_budget.start_at = budget_data["start_at"]
     db_budget.end_at = budget_data["end_at"]
     db_budget.created_at = budget_data["created_at"]
