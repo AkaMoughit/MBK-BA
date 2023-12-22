@@ -2,7 +2,7 @@
 from datetime import datetime,date
 
 from pydantic import BaseModel
-from sqlalchemy import Column, DateTime, Integer, String
+from sqlalchemy import Column, DateTime, Integer, String, Text
 
 from database import Base
 
@@ -14,6 +14,7 @@ class User(Base):
     # Columns in the 'users' table
     user_id = Column(Integer, primary_key=True, index=True)
     username = Column(String(255), unique=True, index=True)
+    profile_image = Column(Text)
     email = Column(String(255), unique=True, index=True)
     password_hash = Column(String(255))
     first_name = Column(String(255))
@@ -27,6 +28,7 @@ class User(Base):
 class UserBase(BaseModel):
     # Pydantic model for request input validation
     username: str
+    profile_image : str
     email: str
     password_hash: str
     first_name: str

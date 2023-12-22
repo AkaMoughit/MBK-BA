@@ -69,6 +69,7 @@ async def update_user(user_id: int, user: UserBase, db: Session = Depends(get_db
     db_user.last_name = user_data["last_name"]
     db_user.date_of_birth = user_data["date_of_birth"]
     db_user.created_at = user_data["created_at"]
+    db_user.profile_image = user_data["profile_image"]
     db.commit()
     return {"message": "User updated successfully"}
 
