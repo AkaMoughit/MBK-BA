@@ -7,7 +7,8 @@ from database import Base, get_db, override_get_db
 from main import app
 from models.budgets import BudgetBase
 
-# SQLite in-memory database for testing
+# Constants
+BUDGET_ENDPOINT = "/budgets/1"
 DATABASE_URL = "sqlite:///:memory:"
 
 # Override database URL in the test settings
@@ -41,7 +42,7 @@ def test_create_budget():
 
 def test_get_budget():
     # Test getting a specific budget
-    response = client.get("/budgets/1")
+    response = client.get(BUDGET_ENDPOINT)
     assert response.status_code == 200
     assert response.json()["user_id"] == 1
 
@@ -62,18 +63,18 @@ def test_update_budget():
         "end_at": "2023-12-31",
         "created_at": "2023-01-01T00:00:00",
     }
-    response = client.put("/budgets/1", json=update_data)
+    response = client.put(BUDGET_ENDPOINT, json=update_data)
     assert response.status_code == 200
     assert response.json()["message"] == "Budget updated successfully"
 
 def test_delete_budget():
     # Test deleting a budget
-    response = client.delete("/budgets/1")
+    response = client.delete(BUDGET_ENDPOINT)
     assert response.status_code == 200
     assert response.json()["message"] == "Budget deleted successfully"
 
 def test_get_budgets_by_user():
     # Test getting budgets by user
-    response = client.get("/budgets/1")
+    response = client.get(BUDGET_ENDPOINT)
     assert response.status_code == 200
     assert len(response.json()) > 0

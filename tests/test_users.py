@@ -7,7 +7,8 @@ from database import Base, get_db, override_get_db
 from main import app
 from models.users import UserBase
 
-# SQLite in-memory database for testing
+# Constants
+USER_ENDPOINT = "/users/1"
 DATABASE_URL = "sqlite:///:memory:"
 
 # Override database URL in the test settings
@@ -42,7 +43,7 @@ def test_create_user():
 
 def test_get_user():
     # Test getting a specific user
-    response = client.get("/users/1")
+    response = client.get(USER_ENDPOINT)
     assert response.status_code == 200
     assert response.json()["username"] == "test_user"
 
@@ -64,18 +65,18 @@ def test_update_user():
         "created_at": "2023-01-01T00:00:00",
         "profile_image": "updated_profile_image",
     }
-    response = client.put("/users/1", json=update_data)
+    response = client.put(USER_ENDPOINT, json=update_data)
     assert response.status_code == 200
     assert response.json()["message"] == "User updated successfully"
 
 def test_delete_user():
     # Test deleting a user
-    response = client.delete("/users/1")
+    response = client.delete(USER_ENDPOINT)
     assert response.status_code == 200
     assert response.json()["message"] == "User deleted successfully"
 
 def test_get_user_budget():
     # Test getting user's budget
-    response = client.get("/users/1/budget")
+    response = client.get(USER_ENDPOINT + "/budget")
     assert response.status_code == 404  # Assuming no budget is associated with the test user
     # You may adjust the assertion based on your actual logic
