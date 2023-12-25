@@ -7,9 +7,6 @@ from sqlalchemy import Column, DateTime, Integer, String, Float
 from database import Base
 
 
-
-
-
 class Budget(Base):
     # Database table name
     __tablename__ = "budgets"
@@ -23,8 +20,6 @@ class Budget(Base):
     start_at = Column(DateTime)
     end_at = Column(DateTime)
     created_at = Column(DateTime)
-
-    
     updated_at = Column(DateTime)
     deleted_at = Column(DateTime)
 
