@@ -2,13 +2,23 @@
 from fastapi import FastAPI
 from fastapi.responses import RedirectResponse
 from sqlalchemy.orm import Session
-
+from fastapi.middleware.cors import CORSMiddleware
 from database import Base, SessionLocal, engine
 from routes.budgets import router as budget_router
 from routes.users import router as user_router
 
 # Create a FastAPI instance
 app = FastAPI()
+
+# CORS middleware
+origins = ["*"]  
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 # Include user and budget routers
 app.include_router(user_router)
