@@ -3,6 +3,7 @@ from datetime import datetime,date
 
 from pydantic import BaseModel
 from sqlalchemy import Column, DateTime, Integer, String, Text
+from typing import Optional
 
 from database import Base
 
@@ -27,11 +28,11 @@ class User(Base):
 
 class UserBase(BaseModel):
     # Pydantic model for request input validation
-    username: str
-    profile_image : str
-    email: str
-    password_hash: str
-    first_name: str
-    last_name: str
-    date_of_birth: date
-    created_at: datetime
+    username: Optional[str]
+    profile_image : Optional[str]
+    email: Optional[str]
+    password_hash: Optional[str]
+    first_name: Optional[str]
+    last_name: Optional[str]
+    date_of_birth: Optional[date]
+    created_at: Optional[datetime]

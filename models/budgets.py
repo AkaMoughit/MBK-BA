@@ -3,6 +3,7 @@ from datetime import datetime,date
 
 from pydantic import BaseModel
 from sqlalchemy import Column, DateTime, Integer, String, Float
+from typing import Optional
 
 from database import Base
 
@@ -26,10 +27,10 @@ class Budget(Base):
 
 class BudgetBase(BaseModel):
     # Pydantic model for request input validation
-    user_id: int
-    budget_name: str
-    amount: int = 0
-    remaining_amount: int = 0
-    start_at: date
-    end_at: date
-    created_at: datetime
+    user_id: Optional[int]
+    budget_name: Optional[str]
+    amount: Optional[int] = 0
+    remaining_amount: Optional[int] = 0
+    start_at: Optional[date]
+    end_at: Optional[date]
+    created_at: Optional[datetime]
