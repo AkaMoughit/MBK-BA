@@ -11,7 +11,7 @@ load_dotenv()
 
 # Get database connection details from environment variables with defaults
 DB_USER = os.getenv("DB_USER", "doadmin")
-DB_PASSWORD = os.getenv("DB_PASSWORD", "AVNS_IiPgoKqeMWGoDx4J2q1")
+DB_PASSWORD = os.getenv("DB_PASSWORD", "AVNS_bM9-yo76Q3fg1XgP1w2")
 DB_HOST = os.getenv("DB_HOST", "mbk-db-do-user-14057762-0.c.db.ondigitalocean.com")
 DB_PORT = os.getenv("DB_PORT", "25060")
 DB_NAME = os.getenv("DB_NAME", "defaultdb")
